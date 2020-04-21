@@ -23,7 +23,10 @@ public class DatabaseServer {
             return DatabaseCommands.valueOf(command[0]).getCommand(this.env, command).execute();
         }
         catch (Exception e) {
-            return DatabaseCommandResult.error(e.getMessage());
+            if (e.getMessage() != null) {
+                return DatabaseCommandResult.error(e.getMessage());
+            }
+            return DatabaseCommandResult.error("Unknown error");
         }
     }
 }

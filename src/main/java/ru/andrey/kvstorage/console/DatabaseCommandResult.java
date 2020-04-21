@@ -27,7 +27,6 @@ public interface DatabaseCommandResult {
     class CommandResult implements DatabaseCommandResult{
         private boolean success;
         private String executionResult;
-
         private CommandResult(String message, boolean success) {
             this.success = success;
             this.executionResult = message;
@@ -40,10 +39,7 @@ public interface DatabaseCommandResult {
 
         @Override
         public DatabaseCommandStatus getStatus() {
-            if (isSuccess()) {
-                return DatabaseCommandStatus.SUCCESS;
-            }
-            return DatabaseCommandStatus.FAILED;
+            return isSuccess() ? DatabaseCommandStatus.SUCCESS : DatabaseCommandStatus.FAILED;
         }
 
         @Override

@@ -7,7 +7,9 @@ import ru.andrey.kvstorage.exception.DatabaseException;
 
 public class ReadKey implements DatabaseCommand {
     private ExecutionEnvironment env;
-    private String databaseName, tableName, key;
+    private String databaseName;
+    private String tableName;
+    private String key;
 
     public ReadKey(ExecutionEnvironment exEnv, String dbName, String tName, String key) {
         this.env = exEnv;
